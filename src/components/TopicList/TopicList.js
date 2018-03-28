@@ -107,10 +107,10 @@ export default class TopicList extends Component {
               <img src={d.author.avatar_url} alt={d.author.loginname} />
             </NavLink>
             <span className={emphase ? 'list-type emphase' : 'list-type'}>{type}</span>
-            <div className="list-til">
+            <NavLink to={`/article/${d.id}`} className="list-til">
               <p title={d.title}>{d.title}</p>
               <span>{d.reply_count}/{d.visit_count}</span>
-            </div>
+            </NavLink>
           </Col>
           <Col span={4} className="list-time">
             {getDurTime(d.last_reply_at)}

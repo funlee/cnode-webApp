@@ -19,3 +19,12 @@ $emphase-text-color:#0d1a26;
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+@mixin fixed_top{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 768px;
+}

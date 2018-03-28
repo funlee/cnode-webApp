@@ -3,6 +3,11 @@
   @include wrap;
   background-color: #fff;
   position: relative;
+  .fix-top{
+    background: #fff;
+    z-index: 99;
+    @include fixed_top;
+  }
   .go-back{
     position: absolute;
     top: 10px;
@@ -55,5 +60,10 @@
   }
   .hidden{
     display: none;
+  }
+  .user-detail{
+    position: relative;
+    margin-top: 180px;
+    z-index: 2;
   }
 }
