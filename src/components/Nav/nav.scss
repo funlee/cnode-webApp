@@ -1,11 +1,13 @@
+@import '../../assets/css/config';
 .nav{
-  width: 100%;
+  @include wrap;
   background-color: rgb(0, 188, 212);
   white-space: nowrap;
   position: fixed;
   z-index: 1;
   top: 56px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   li{
     display: inline-block;
     width: 20%;

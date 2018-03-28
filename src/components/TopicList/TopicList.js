@@ -1,5 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './topicList.scss';
+
+import Banner from 'components/Banner/Banner';
+import Nav from 'components/Nav/Nav';
+
 import { Row, Col, Spin } from 'antd';
 import axios from 'axios';
 import { getDurTime } from 'assets/js/utils';
@@ -98,9 +103,9 @@ export default class TopicList extends Component {
       listDOM.push(
         <Row className="list" key={`${i}`}>
           <Col span={20} className="list-left">
-            <a href="" className="list-avatars" title={d.author.loginname}>
+            <NavLink to={`/user/${d.author.loginname}`} className="list-avatars" title={d.author.loginname}>
               <img src={d.author.avatar_url} alt={d.author.loginname} />
-            </a>
+            </NavLink>
             <span className={emphase ? 'list-type emphase' : 'list-type'}>{type}</span>
             <div className="list-til">
               <p title={d.title}>{d.title}</p>
@@ -120,12 +125,16 @@ export default class TopicList extends Component {
     const height = window.innerHeight - 110;
     const { isAddLoad } = this.state
     return (
-      <div className="topic-list" ref={ node => this.contentNode = node } style={{height:height}}>
-        {this.renderList()}
-        <div className={isAddLoad ? 'add-load active' : 'add-load'} >
-          <Spin />
+      <section>
+        <Banner />
+        <Nav />
+        <div className="topic-list" ref={node => this.contentNode = node} style={{ height: height }}>
+          {this.renderList()}
+          <div className={isAddLoad ? 'add-load active' : 'add-load'} >
+            <Spin />
+          </div>
         </div>
-      </div>
+      </section>
     )
   }
 }
