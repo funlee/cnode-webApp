@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import './user.scss';
 import axios from 'axios';
 import DetailList from 'components/DetailList/DetailList';
-import { Icon, Affix } from 'antd';
+import { Icon, Affix, message } from 'antd';
 
 export default class User extends Component {
   constructor(props) {
@@ -16,15 +16,20 @@ export default class User extends Component {
       isTopics: true
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     const userId = this.props.match.params.userId
     const url = `/user/${userId}`
     axios.get(url)
     .then(data => {
-      const { avatar_url, create_at, loginname, recent_replies, recent_topics } = data
+      const { avatar_url, create_at, loginname, recent_replies, recent_topics } = data.data
       this.setState({
         avatar_url, create_at, loginname, recent_replies, recent_topics
       })
+    })
+    .catch(error => {
+      message.error('请先登录', 2, () => {
+        this.props.history.push('/login')
+      });
     })
   }
   handleToggleTab() {

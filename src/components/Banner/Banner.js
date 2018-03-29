@@ -9,13 +9,9 @@ class Banner extends Component {
   render() {
     return(
       <div className="banner">
-        <Icon type="menu-fold" className="side-btn" />
-        <h1 className="title">NodeJS论坛</h1>
-        <a href="#" className="bell-info">
-          <Badge count={0} showZero>
-            <Icon type="bell" className="bell" />
-          </Badge>
-        </a>
+        <Icon type="menu-fold" className="btn-left" onClick={this.props.showLeft}/>
+        <h4 className="title">cnode</h4>
+        <Icon type="ellipsis" className="btn-right" onClick={this.props.showRight}/>
       </div>
     )
   }

@@ -1,8 +1,8 @@
 $bg-color: #f0eff5;
-$base-color: #25273c;
+
 $emphase-color:#1890ff;
 $base-bgcolor: #25273c;
-$border-color: #ebedf0;
+
 
 $normal-text-color:rgba(0, 0, 0, 0.65);
 $emphase-text-color:#0d1a26;
@@ -28,3 +28,11 @@ $emphase-text-color:#0d1a26;
   width: 100%;
   max-width: 768px;
 }
+//---------------------------------
+// color
+$base-color: #25273c;         //字体默认颜色
+$border-color: #ebedf0;
+// fixed top height
+
+$fixed-top-h: 40px;
+

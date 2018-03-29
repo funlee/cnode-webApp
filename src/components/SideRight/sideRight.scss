@@ -1,0 +1,33 @@
+ @import '../../assets/css/config';
+.side-right{
+  width: 23%;
+  height: 100%;
+  background-color: rgba(84, 107, 131, .4);
+  background-image: linear-gradient(140deg, rgba(84, 107, 131, .4), rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  transition: all 0.5s ease-out 0s;
+  .nav {
+    li {
+      display: block;
+      width: 100%;
+      a {
+        color: #fff;
+        display: block;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        &:hover,
+        &.active {
+          background: skyblue;
+        }
+      }
+    }
+  }
+
+}

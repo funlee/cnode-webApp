@@ -9,7 +9,7 @@ export default class ReplyList extends Component {
     const { data } = this.props;
     const listDOM = data.map((d, i) => (
       <div key={`${i}`} className="row-wrap">
-        <Row className="list">
+        <Row className="list-a">
           <Col span={4} className="list-left">
             <NavLink to={`/user/${d.author.loginname}`}>
               <img src={d.author.avatar_url} alt={d.author.loginname} />

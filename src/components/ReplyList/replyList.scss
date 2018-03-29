@@ -3,12 +3,13 @@
   .row-wrap{
     border-bottom: 1px solid $border-color;
     padding-bottom: 6px;
+    padding: 6px 10px;
     &:last-child{
       .list{
         margin-bottom: 0;
       }
     }
-    .list {
+    .list-a {
       padding: 4px 0px;
       width: 100%;
       display: flex;
