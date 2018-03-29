@@ -1,24 +1,5 @@
 @import '../../assets/css/config';
-body,html{
-  background: $bg-color !important;
-  height: 100%;
-  width: 100%;
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif;
-}
-#root{
-  margin: 0 auto;
-  overflow-x: hidden;
-  @include wrap;
-}
 .app{
   @include wrap;
+  height: 100%;
 }
-
-// .markdown-text{
-//   padding: 0 10px;
-// }

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './topicList.scss';
 
-import Banner from 'components/Banner/Banner';
-import Nav from 'components/Nav/Nav';
+// import Nav from 'components/Nav/Nav';
 
 import { Row, Col, Spin } from 'antd';
 import axios from 'axios';
@@ -22,7 +21,7 @@ export default class TopicList extends Component {
       }
     }
   }
-  componentDidMount() {
+  componentDidMount() { // 不能用 componentWillMount
     this.getData()
     if (this.contentNode) {
       this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
@@ -57,7 +56,7 @@ export default class TopicList extends Component {
     })
     .then(data => {
       this.setState({
-        data: [...this.state.data, ...data],
+        data: [...this.state.data, ...data.data],
         isAddLoad: false
       })
     })
@@ -122,16 +121,14 @@ export default class TopicList extends Component {
     return listDOM
   }
   render() {
-    const height = window.innerHeight - 110;
+    const height = window.innerHeight - 40;
     const { isAddLoad } = this.state
     return (
-      <section>
-        <Banner />
-        <Nav />
-        <div className="topic-list" ref={node => this.contentNode = node} style={{ height: height }}>
+      <section className="topic-wrap">
+        <div className="topic-list" ref={node => this.contentNode = node} style={{ maxHeight: height }}>
           {this.renderList()}
           <div className={isAddLoad ? 'add-load active' : 'add-load'} >
-            <Spin />
+            <Spin className="load-icon"/>
           </div>
         </div>
       </section>
