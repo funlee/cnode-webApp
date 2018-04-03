@@ -27,15 +27,3 @@ stack
  - 可以不登录直接进入主页
  - 具有 loading、404
 
- 页面截图
- ---------
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/01.png "登录页")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/02.png "主题展示页")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/03.png "左侧导航栏")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/04.png "右侧导航栏")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/05.png "详情页")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/06.png "个人中心页")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/07.png "404")
-
-
-
