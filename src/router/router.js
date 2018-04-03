@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Bundle from './Bundle';
 import Loading from 'components/common/Loading/Loading';
 import NotFound from 'bundle-loader?lazy&name=notFound!components/common/NotFound/NotFound';
@@ -18,12 +18,14 @@ const createComponent = (component) => (props) => (
 );
 
 export default () => (
-  <Switch>
-    <Redirect exact from="/" to="/login" />
-    <Route exact path="/login" component={createComponent(Login)} />
-    <Route exact path="/topic/:id" component={createComponent(Topic)} />
-    <Route exact path="/user/:userId" component={createComponent(User)} />
-    <Route exact path="/article/:id" component={createComponent(Article)} />
-    <Route component={createComponent(NotFound)}/>
-  </Switch>
+  <Router>
+    <Switch>
+      <Redirect exact from="/" to="/login" />
+      <Route exact path="/login" component={createComponent(Login)} />
+      <Route exact path="/topic/:id" component={createComponent(Topic)} />
+      <Route exact path="/user/:userId" component={createComponent(User)} />
+      <Route exact path="/article/:id" component={createComponent(Article)} />
+      <Route component={createComponent(NotFound)}/>
+    </Switch>
+  </Router>
 );

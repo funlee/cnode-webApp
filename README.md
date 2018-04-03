@@ -3,7 +3,8 @@ cnode-webApp
 一个 WebApp 版的 cnode 客户端，项目采用 react 技术栈构建，未做回复和收藏功能，纯属练手，目前的功能只能用于浏览。
  - 感谢来自 (cnodejs)[https://cnodejs.org 'cnode'] 论坛官方提供的 api ！
 
- 在线访问：(Cnode-webApp)[https://github.com/funlee/cnode-webApp 'Cnode-webApp']
+ 在线访问：(Cnode-webApp)[http://show.funlee.cn/cnode-webapp 'Cnode-webApp']
+ 建议 F12 打开控制台，在移动端设备上查看
 
 运行项目
 -------
@@ -35,7 +36,6 @@ stack
  ![](https://raw.github.com/funlee/cnode-webApp/master/example/04.png "右侧导航栏")
  ![](https://raw.github.com/funlee/cnode-webApp/master/example/05.png "详情页")
  ![](https://raw.github.com/funlee/cnode-webApp/master/example/06.png "个人中心页")
- ![](https://raw.github.com/funlee/cnode-webApp/master/example/07.png "404")
 
 
 
