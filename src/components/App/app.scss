@@ -2,4 +2,6 @@
 .app{
   @include wrap;
   height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }

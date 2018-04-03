@@ -8,6 +8,7 @@ export default class User extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isLogin: false,
       avatar_url: null,
       create_at: null,
       loginname: null,
@@ -23,7 +24,8 @@ export default class User extends Component {
     .then(data => {
       const { avatar_url, create_at, loginname, recent_replies, recent_topics } = data.data
       this.setState({
-        avatar_url, create_at, loginname, recent_replies, recent_topics
+        avatar_url, create_at, loginname, recent_replies, recent_topics,
+        isLogin: true
       })
     })
     .catch(error => {
@@ -41,35 +43,39 @@ export default class User extends Component {
     window.history.back()
   }
   render() {
-    const { avatar_url, create_at, loginname, recent_replies, recent_topics, isTopics } = this.state
-    return(
-      <div className="user">
-        <div className="fix-top">
-          <span className="go-back" onClick={this.handleBack.bind(this)}>
-            <Icon type="left" />
-          </span>
-          <div className="user-info">
-            <div>
-              <img src={avatar_url} alt={loginname} />
-              <p className="user-name">{loginname}</p>
-              <p>加入时间:{create_at ? create_at.slice(0, 10) : null}</p>
+    const { isLogin, avatar_url, create_at, loginname, recent_replies, recent_topics, isTopics } = this.state
+    if (isLogin) {
+      return (
+        <div className="user">
+          <div className="fix-top">
+            <span className="go-back" onClick={this.handleBack.bind(this)}>
+              <Icon type="left" />
+            </span>
+            <div className="user-info">
+              <div>
+                <img src={avatar_url} alt={loginname} />
+                <p className="user-name">{loginname}</p>
+                <p>加入时间:{create_at ? create_at.slice(0, 10) : null}</p>
+              </div>
+            </div>
+            <div className="tab-sel">
+              <span className={isTopics ? 'active' : null} onClick={this.handleToggleTab.bind(this)}>主题</span>
+              <span className={isTopics ? null : 'active'} onClick={this.handleToggleTab.bind(this)}>回复</span>
             </div>
           </div>
-          <div className="tab-sel">
-            <span className={isTopics ? 'active' : null} onClick={this.handleToggleTab.bind(this)}>主题</span>
-            <span className={isTopics ? null : 'active'} onClick={this.handleToggleTab.bind(this)}>回复</span>
+          <div className="user-detail">
+            {
+              isTopics ? <div className="detail">
+                <DetailList data={recent_topics} />
+              </div> : <div className="detail">
+                  <DetailList data={recent_replies} />
+                </div>
+            }
           </div>
         </div>
-        <div className="user-detail">
-          {
-            isTopics ? <div className="detail">
-              <DetailList data={recent_topics} />
-            </div> : <div className="detail">
-                <DetailList data={recent_replies} />
-              </div>
-          }
-        </div>
-      </div>
-    )
+      )
+    } else {
+      return null
+    }
   }
 }

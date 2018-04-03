@@ -20,6 +20,9 @@ export default class Topics extends Component {
       }
     }
   }
+  componentDidMount() {
+    document.onClick = this.closeSide
+  }
   componentWillMount() {
     const [avatar_url, id, loginname] = getCookie('cnodeuser').split('|');
     this.setState({
@@ -38,6 +41,16 @@ export default class Topics extends Component {
       isRight: !this.state.isRight
     })
   }
+  closeSide() {
+    const { isLeft, isRight } = this.state
+    console.log(isLeft,isRight)
+    if(isLeft || isRight) {
+      this.setState({
+        isRight: false,
+        isLeft: false
+      })
+    }
+  }
   render() {
     const { isRight, isLeft } = this.state
     let toLR
@@ -53,7 +66,7 @@ export default class Topics extends Component {
         {
           isLeft ? <SideLeft userInfo={this.state.userInfo} /> : null
         }
-        <div className="content" style={{ left: toLR }}>
+        <div className="content" style={{ marginLeft: toLR }}>
           <Banner showRight={this.handleRight.bind(this)} showLeft={this.handleLeft.bind(this)}/>
           <TopicList tab={this.props.match.params.id} />
         </div>

@@ -19,7 +19,9 @@ export default class SideRight extends Component {
                 <img src={decodeURIComponent(avatar_url)} alt={loginname} className="avatar" />
               </NavLink>
               :
-              <div className="avatar no-avatar"></div>
+              <NavLink to='/login'>
+                <div className="avatar no-avatar"></div>
+              </NavLink>
             }
             <p>{loginname ? loginname : '请先登录'}</p>
           </div>
@@ -29,7 +31,7 @@ export default class SideRight extends Component {
           <li><NavLink to={`/user/${loginname}`}><Icon type="meh-o" />个人中心</NavLink></li>
           <li><NavLink to="/not-dev"><Icon type="bell" />消息提醒</NavLink> </li>
           <li><NavLink to="/not-dev"><Icon type="heart-o" />我的收藏</NavLink></li>
-          <li><NavLink to="https://github.com/funlee/cnode-webApp" target="_black"><Icon type="question-circle-o" />了解更多</NavLink></li>
+          <li><NavLink to="https://github.com/funlee/cnode-webApp" target="_black"><Icon type="question-circle-o" />查看源码</NavLink></li>
         </ul>
       </div>
     )

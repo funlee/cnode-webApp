@@ -48,7 +48,7 @@ export default class Login extends Component {
       <div className="login">
         <div className="logo">
           {/* <img src="" alt=""/> */}
-          <div className="logo-img"></div>
+          <div className="logo-img">JS</div>
           <h1 className="logo-name">cnode</h1>
         </div>
         <div className="login-content">
